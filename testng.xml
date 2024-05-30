@@ -16,6 +16,11 @@
                 <include name="createProjectUnathenticated"/>
             </methods>
         </class>
+        <class name="APITests.Project.DeleteProject.Positive.DeleteProjectPositiveCases">
+            <methods>
+                <include name="deleteProjectByCode"/>
+            </methods>
+        </class>
     </classes>
 </test>
 </suite>

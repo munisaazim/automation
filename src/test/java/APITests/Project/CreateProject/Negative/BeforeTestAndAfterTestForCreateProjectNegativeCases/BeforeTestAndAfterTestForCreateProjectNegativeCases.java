@@ -7,7 +7,7 @@ import io.qameta.allure.*;
 import org.apache.log4j.FileAppender;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,7 +18,7 @@ public class BeforeTestAndAfterTestForCreateProjectNegativeCases extends BaseTes
     protected BusinessLayer businessLayer;
     protected Project project;
     protected Logger logger;
-    protected String logFilePath, logFilePathDeleteProject;
+    protected String logFilePathFORNEGATIVE, logFilePathDeleteProject;
 
     protected FileAppender setFileAppender(String logFilePath){
         FileAppender fileAppender = new FileAppender();
@@ -38,11 +38,11 @@ public class BeforeTestAndAfterTestForCreateProjectNegativeCases extends BaseTes
         Allure.addAttachment("Log File", "text/plain", fileInputStream, "txt");
 
     }
-    @BeforeMethod
+    @BeforeTest
     @Severity(SeverityLevel.CRITICAL)
     @Description("Initializing project and businesslayer objects")
     @Step("Initializing project and businesslayer objects")
-    public void initializationforCreateProjectNegatiiveCase(){
+    public void initializationForCreateProjectNegativeCase() {
         project = new Project();
         businessLayer = new BusinessLayer();
     }

@@ -5,8 +5,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
-import io.restassured.config.EncoderConfig;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.apache.log4j.Logger;
@@ -33,7 +31,7 @@ public class BaseAPIClass {
         customResponse.setBody(response.getBody().asString());
         return customResponse;
     }
-    public <T> CustomResponse postRequest(String Relative_Url, String json, Class<T> responseType, Logger logger){
+    public <T> CustomResponse <T>postRequest(String Relative_Url, String json, Class<T> responseType, Logger logger){
         Response response = requestSpecification
                 .header("content-type", "application/json")
                 .basePath(Relative_Url)
@@ -43,18 +41,19 @@ public class BaseAPIClass {
         return customResponse(response, logger);
 
     }
-    public <T> CustomResponse getRequest(String Relative_Url, String Relative_Url_For_Get, Logger logger){
+    public <T> CustomResponse <T> deleteRequest(String Relative_Url,String Relative_Url_Get, Logger logger){
+        Response response = requestSpecification
+                .basePath(Relative_Url)
+                .delete(Relative_Url_Get);
+        logger.debug("Deleting project with deleteRequest in BaseAPI");
+        return customResponse(response, logger);
+    }
+    public <T>CustomResponse<T> getRequestByCode(String Relative_Url, String Relative_Url_For_Get, Logger logger){
         Response response = requestSpecification
                 .basePath(Relative_Url)
                 .get(Relative_Url_For_Get);
+        logger.debug("Getting project with getRequestByCode in BaseAPI");
         return customResponse(response,logger);
-    }
-
-    public <T> CustomResponse deleteRequest(String Relative_Url,String Relative_Url_Delete, Logger logger){
-        Response response = requestSpecification
-                .basePath(Relative_Url)
-                .delete(Relative_Url_Delete);
-        return customResponse(response, logger);
     }
 
     public class CustomResponse <T> {
@@ -94,7 +93,6 @@ public class BaseAPIClass {
 
         public String getErrorMessage() throws JsonProcessingException {
             if(getStatusCode()==200){
-                System.out.println("Status Code: " + getStatusCode() + "\n");
                 return null;
             }
             else {
@@ -106,15 +104,29 @@ public class BaseAPIClass {
         }
         public String getErrorMessageShort() throws JsonProcessingException {
             if(getStatusCode()==200){
-                System.out.println("Status Code: " + getStatusCode() + "\n");
                 return null;
             }
             else {
                 String getResponseBody = getBody();
                 ObjectMapper objectMapper = new ObjectMapper();
                 JsonNode jsonNode = objectMapper.readTree(getResponseBody);
-                System.out.println(jsonNode);
                 return jsonNode.path("error").asText();
+            }
+        }
+        public String getErrorMessageForDelete(Logger logger) throws JsonProcessingException {
+            if(getStatusCode()==200){
+                logger.debug("getObjectModel has not worked since status code is: " + getStatusCode());
+                return null;
+            }
+            else {
+                logger.debug("Retrieving custom body");
+                String getResponseBody = getBody();
+                logger.debug("Initializing objectMapper object with corresponding class");
+                ObjectMapper objectMapper = new ObjectMapper();
+                logger.debug("Obtaining details about created project from node 'result'");
+                JsonNode jsonNode = objectMapper.readTree(getResponseBody);
+                logger.debug("Obtaining details from node 'response body'");
+                return jsonNode.path("errorMessage").asText();
             }
         }
 

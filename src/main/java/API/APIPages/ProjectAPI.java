@@ -32,8 +32,14 @@ public class ProjectAPI extends BaseAPIClass{
     }
     public CustomResponse deleteProject(Project project, Logger logger){
         String Relative_Url_Delete = "/" + project.getCode().toUpperCase();
-        System.out.println("Relative_Url_Delete ProjectAPI" + Relative_Url_Delete);
+        logger.debug("Sending project details in ProjectAPI to delete project in BaseAPI");
         return deleteRequest(RELATIVE_URL, Relative_Url_Delete,logger);
+    }
+    public CustomResponse getProjectByCode(Project project, Logger logger){
+        String projectCode = project.getCode();
+        String Relative_Url_Get_Project_By_Code = "/" + projectCode;
+        logger.debug("Sending project details in ProjectAPI to get project data in BaseAPI");
+        return getRequestByCode(RELATIVE_URL, Relative_Url_Get_Project_By_Code,logger);
     }
 
 }

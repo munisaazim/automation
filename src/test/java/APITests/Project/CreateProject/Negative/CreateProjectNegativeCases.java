@@ -23,9 +23,9 @@ public class CreateProjectNegativeCases extends BeforeTestAndAfterTestForCreateP
             "2. Verify create project is failed with error message\n"
     )
     public void createProjectWithMinimumLength() throws JsonProcessingException, FileNotFoundException {
-        logFilePath = "log/CreateProjectNegativeCases/CreateProjectWithMinLength/CreateProjectWithMinLength_" + formattedDateTime + ".log";
+        logFilePathFORNEGATIVE = "log/CreateProjectNegativeCases/CreateProjectWithMinLength/CreateProjectWithMinLength_" + formattedDateTime + ".log";
         logger= Logger.getLogger("Tests.CreateProjectNegativeCases");
-        FileAppender fileAppender = setFileAppender(logFilePath);
+        FileAppender fileAppender = setFileAppender(logFilePathFORNEGATIVE);
         logger.addAppender(fileAppender);
 
         logger.info("Creating project with minimum length");
@@ -40,7 +40,7 @@ public class CreateProjectNegativeCases extends BeforeTestAndAfterTestForCreateP
         logger.error("Status code" + customResponse.getStatusCode());
         logger.error("Error message" + errorMessage);
 
-        attachingLogFileToAllure(logFilePath);
+        attachingLogFileToAllure(logFilePathFORNEGATIVE);
         deletingDataFromLogger();
 
         assertThat(PROJECT_CODE_MIN_LENGTH_STATUS_CODE_MESSAGE_FAILED + "\n" + errorMessage, customResponse.getStatusCode(), equalTo(400));
@@ -54,9 +54,9 @@ public class CreateProjectNegativeCases extends BeforeTestAndAfterTestForCreateP
             "2. Verify create project is failed with error message\n"
     )
     public void createProjectWithMaximumLength() throws JsonProcessingException, FileNotFoundException {
-        logFilePath = "log/CreateProjectNegativeCases/CreateProjectWithMaxLength/CreateProjectWithMaxLength_" + formattedDateTime + ".log";
+        logFilePathFORNEGATIVE = "log/CreateProjectNegativeCases/CreateProjectWithMaxLength/CreateProjectWithMaxLength_" + formattedDateTime + ".log";
         logger= Logger.getLogger("Tests.CreateProjectNegativeCases");
-        FileAppender fileAppender = setFileAppender(logFilePath);
+        FileAppender fileAppender = setFileAppender(logFilePathFORNEGATIVE);
         logger.addAppender(fileAppender);
 
         logger.info("Creating project with maximum length");
@@ -69,7 +69,7 @@ public class CreateProjectNegativeCases extends BeforeTestAndAfterTestForCreateP
         logger.error("Status code" + customResponse.getStatusCode());
         logger.error("Error message" + errorMessage);
 
-        attachingLogFileToAllure(logFilePath);
+        attachingLogFileToAllure(logFilePathFORNEGATIVE);
         deletingDataFromLogger();
 
         assertThat(PROJECT_CODE_MAX_LENGTH_STATUS_CODE_MESSAGE_FAILED + "\n" + errorMessage, customResponse.getStatusCode(),  CoreMatchers.equalTo(400));
@@ -84,9 +84,9 @@ public class CreateProjectNegativeCases extends BeforeTestAndAfterTestForCreateP
             "2. Verify create project is failed with error message\n"
     )
     public void createProjectWithEmptyTitle() throws JsonProcessingException, FileNotFoundException {
-        logFilePath = "log/CreateProjectNegativeCases/CreateProjectWithEmptyTitle/CreateProjectWithEmptyTitle_" + formattedDateTime + ".log";
+        logFilePathFORNEGATIVE = "log/CreateProjectNegativeCases/CreateProjectWithEmptyTitle/CreateProjectWithEmptyTitle_" + formattedDateTime + ".log";
         logger= Logger.getLogger("Tests.CreateProjectNegativeCases");
-        FileAppender fileAppender = setFileAppender(logFilePath);
+        FileAppender fileAppender = setFileAppender(logFilePathFORNEGATIVE);
         logger.addAppender(fileAppender);
 
         logger.info("Creating project with empty title");
@@ -99,7 +99,7 @@ public class CreateProjectNegativeCases extends BeforeTestAndAfterTestForCreateP
         logger.error("Status code: " + customResponse.getBody());
         logger.error("Error message: " + errorMessage);
 
-        attachingLogFileToAllure(logFilePath);
+        attachingLogFileToAllure(logFilePathFORNEGATIVE);
         deletingDataFromLogger();
 
         assertThat(EMPTY_TITLE_STATUS_CODE_MESSAGE + "\n" + errorMessage, customResponse.getStatusCode(),  CoreMatchers.equalTo(400));
@@ -111,8 +111,8 @@ public class CreateProjectNegativeCases extends BeforeTestAndAfterTestForCreateP
     @Description("Creating project with negative outcome 4 --> empty code")
     @Step("1. Creating project and businessLayer objects\n")
     public void createProjectWithEmptyCode() throws JsonProcessingException, FileNotFoundException {
-        logFilePath = "log/CreateProjectNegativeCases/CreateProjectWithEmptyCode/CreateProjectWithEmptyCode_" + formattedDateTime + ".log";
-        FileAppender fileAppender = setFileAppender(logFilePath);
+        logFilePathFORNEGATIVE = "log/CreateProjectNegativeCases/CreateProjectWithEmptyCode/CreateProjectWithEmptyCode_" + formattedDateTime + ".log";
+        FileAppender fileAppender = setFileAppender(logFilePathFORNEGATIVE);
         logger.addAppender(fileAppender);
 
         logger.info("Creating project with empty code");
@@ -126,7 +126,7 @@ public class CreateProjectNegativeCases extends BeforeTestAndAfterTestForCreateP
         logger.info("Status code: " + customResponse.getStatusCode());
         logger.info("Error message: " + errorMessage);
 
-        attachingLogFileToAllure(logFilePath);
+        attachingLogFileToAllure(logFilePathFORNEGATIVE);
         deletingDataFromLogger();
 
         assertThat(EMPTY_CODE_STATUS_CODE_MESSAGE + "\n" + errorMessage, customResponse.getStatusCode(),  CoreMatchers.equalTo(400));
@@ -140,9 +140,9 @@ public class CreateProjectNegativeCases extends BeforeTestAndAfterTestForCreateP
             "2. Verify create project is failed with error message\n"
     )
     public void createProjectUnathenticated() throws JsonProcessingException, FileNotFoundException {
-        logFilePath = "log/CreateProjectNegativeCases/CreateProjectUnauthenticated/CreateProjectUnauthenticated_" + formattedDateTime + ".log";
+        logFilePathFORNEGATIVE = "log/CreateProjectNegativeCases/CreateProjectUnauthenticated/CreateProjectUnauthenticated_" + formattedDateTime + ".log";
         logger= Logger.getLogger("Tests.CreateProjectNegativeCases");
-        FileAppender fileAppender = setFileAppender(logFilePath);
+        FileAppender fileAppender = setFileAppender(logFilePathFORNEGATIVE);
         logger.addAppender(fileAppender);
 
         logger.info("Creating project with incorrect api token");
@@ -156,7 +156,7 @@ public class CreateProjectNegativeCases extends BeforeTestAndAfterTestForCreateP
         logger.info("Status code: " + customResponse.getStatusCode());
         logger.info("Error message" + errorMessage);
 
-        attachingLogFileToAllure(logFilePath);
+        attachingLogFileToAllure(logFilePathFORNEGATIVE);
         deletingDataFromLogger();
 
 

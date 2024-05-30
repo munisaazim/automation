@@ -1,4 +1,5 @@
 /Users/munisaazimkhodjaeva/IntelliJ IDEA/Java_Programming/iTechArt_AQA/Review_Automation/NewAutomation/src/test/java/APITests/Project/CreateProject/Positive/CreateProjectPositiveCases.java
+/Users/munisaazimkhodjaeva/IntelliJ IDEA/Java_Programming/iTechArt_AQA/Review_Automation/NewAutomation/src/test/java/APITests/Project/DeleteProject/Positive/DeleteProjectPositiveCases.java
 /Users/munisaazimkhodjaeva/IntelliJ IDEA/Java_Programming/iTechArt_AQA/Review_Automation/NewAutomation/src/test/java/APITests/Project/CreateProject/Positive/BeforeTestAndAfterTestForCreateProjectPositiveCases/BeforeTestAndAfterTestForCreateProjectPositiveCases.java
 /Users/munisaazimkhodjaeva/IntelliJ IDEA/Java_Programming/iTechArt_AQA/Review_Automation/NewAutomation/src/test/java/APITests/Login/Login.java
 /Users/munisaazimkhodjaeva/IntelliJ IDEA/Java_Programming/iTechArt_AQA/Review_Automation/NewAutomation/src/test/java/APITests/BaseTestComponents/BaseTestComponents.java
@@ -6,3 +7,4 @@
 /Users/munisaazimkhodjaeva/IntelliJ IDEA/Java_Programming/iTechArt_AQA/Review_Automation/NewAutomation/src/test/java/APITests/Project/CreateProject/Negative/CreateProjectNegativeCases.java
 /Users/munisaazimkhodjaeva/IntelliJ IDEA/Java_Programming/iTechArt_AQA/Review_Automation/NewAutomation/src/test/java/APITests/Project/CreateProject/Negative/BeforeTestAndAfterTestForCreateProjectNegativeCases/BeforeTestAndAfterTestForCreateProjectNegativeCases.java
 /Users/munisaazimkhodjaeva/IntelliJ IDEA/Java_Programming/iTechArt_AQA/Review_Automation/NewAutomation/src/test/java/Utils/RunAllureGeneration.java
+/Users/munisaazimkhodjaeva/IntelliJ IDEA/Java_Programming/iTechArt_AQA/Review_Automation/NewAutomation/src/test/java/APITests/Project/DeleteProject/Positive/BeforeTestAndAfterTestForDeleteProjectPositiveCases/BeforeTestAndAfterTestForDeleteProjectPositiveCases.java

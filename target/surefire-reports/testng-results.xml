@@ -1,111 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-05-29T13:33:31 GST" name="All Test Suite" finished-at="2024-05-29T13:33:51 GST" duration-ms="19556">
+  <suite started-at="2024-05-30T11:19:39 GST" name="All Test Suite" finished-at="2024-05-30T11:20:01 GST" duration-ms="22294">
     <groups>
     </groups>
-    <test started-at="2024-05-29T13:33:31 GST" name="/Users/munisaazimkhodjaeva/IntelliJ IDEA/Java_Programming/iTechArt_AQA/Review_Automation/NewAutomation/src/test/java/APITests/Project/CreateProject/Positive/CreateProjectPositiveCases.java" finished-at="2024-05-29T13:33:51 GST" duration-ms="19556">
+    <test started-at="2024-05-30T11:19:39 GST" name="/Users/munisaazimkhodjaeva/IntelliJ IDEA/Java_Programming/iTechArt_AQA/Review_Automation/NewAutomation/src/test/java/APITests/Project/CreateProject/Positive/CreateProjectPositiveCases.java" finished-at="2024-05-30T11:20:01 GST" duration-ms="22294">
       <class name="APITests.Project.CreateProject.Positive.CreateProjectPositiveCases">
-        <test-method is-config="true" signature="initializationforCreateProjectPositiveCase()[pri:0, instance:APITests.Project.CreateProject.Positive.CreateProjectPositiveCases@3872bc37]" started-at="2024-05-29T13:33:31 GST" name="initializationforCreateProjectPositiveCase" finished-at="2024-05-29T13:33:31 GST" duration-ms="19" status="PASS">
+        <test-method is-config="true" signature="initializationForCreateProjectPositiveCase()[pri:0, instance:APITests.Project.CreateProject.Positive.CreateProjectPositiveCases@108a46d6]" started-at="2024-05-30T11:19:39 GST" name="initializationForCreateProjectPositiveCase" finished-at="2024-05-30T11:19:39 GST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initializationforCreateProjectPositiveCase -->
-        <test-method signature="createProjectPositiveCase(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:APITests.Project.CreateProject.Positive.CreateProjectPositiveCases@3872bc37]" started-at="2024-05-29T13:33:31 GST" name="createProjectPositiveCase" data-provider="projectData" finished-at="2024-05-29T13:33:39 GST" duration-ms="7410" status="PASS">
+        </test-method> <!-- initializationForCreateProjectPositiveCase -->
+        <test-method signature="createProjectPositiveCase(Models.Project)[pri:1, instance:APITests.Project.CreateProject.Positive.CreateProjectPositiveCases@108a46d6]" started-at="2024-05-30T11:19:39 GST" name="createProjectPositiveCase" data-provider="projectData" finished-at="2024-05-30T11:19:46 GST" duration-ms="7663" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[tg16]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[tg16]]>
-              </value>
-            </param>
-            <param index="2">
-              <value is-null="true"/>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createProjectPositiveCase -->
-        <test-method is-config="true" signature="deleteCreatedProject()[pri:0, instance:APITests.Project.CreateProject.Positive.CreateProjectPositiveCases@3872bc37]" started-at="2024-05-29T13:33:39 GST" name="deleteCreatedProject" finished-at="2024-05-29T13:33:40 GST" duration-ms="825" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteCreatedProject -->
-        <test-method is-config="true" signature="initializationforCreateProjectPositiveCase()[pri:0, instance:APITests.Project.CreateProject.Positive.CreateProjectPositiveCases@3872bc37]" started-at="2024-05-29T13:33:40 GST" name="initializationforCreateProjectPositiveCase" finished-at="2024-05-29T13:33:40 GST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializationforCreateProjectPositiveCase -->
-        <test-method signature="createProjectPositiveCase(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:APITests.Project.CreateProject.Positive.CreateProjectPositiveCases@3872bc37]" started-at="2024-05-29T13:33:40 GST" name="createProjectPositiveCase" data-provider="projectData" finished-at="2024-05-29T13:33:41 GST" duration-ms="1170" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[tg17]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[tg17]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[tg17 description]]>
+                <![CDATA[Project{title='ProjectWithRequiredFields', code='code', description='null', result=null}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createProjectPositiveCase -->
-        <test-method is-config="true" signature="deleteCreatedProject()[pri:0, instance:APITests.Project.CreateProject.Positive.CreateProjectPositiveCases@3872bc37]" started-at="2024-05-29T13:33:41 GST" name="deleteCreatedProject" finished-at="2024-05-29T13:33:41 GST" duration-ms="716" status="PASS">
+        <test-method signature="createProjectPositiveCase(Models.Project)[pri:1, instance:APITests.Project.CreateProject.Positive.CreateProjectPositiveCases@108a46d6]" started-at="2024-05-30T11:19:47 GST" name="createProjectPositiveCase" data-provider="projectData" finished-at="2024-05-30T11:19:47 GST" duration-ms="936" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Project{title='ProjectWithOptionalFields', code='codeTwo', description='description', result=null}]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- deleteCreatedProject -->
+        </test-method> <!-- createProjectPositiveCase -->
+        <test-method is-config="true" signature="afterTestDeleteCreatedProjects()[pri:0, instance:APITests.Project.CreateProject.Positive.CreateProjectPositiveCases@108a46d6]" started-at="2024-05-30T11:19:59 GST" name="afterTestDeleteCreatedProjects" finished-at="2024-05-30T11:20:01 GST" duration-ms="2065" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTestDeleteCreatedProjects -->
       </class> <!-- APITests.Project.CreateProject.Positive.CreateProjectPositiveCases -->
       <class name="APITests.Project.CreateProject.Negative.CreateProjectNegativeCases">
-        <test-method is-config="true" signature="initializationforCreateProjectNegatiiveCase()[pri:0, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@35cd68d4]" started-at="2024-05-29T13:33:41 GST" name="initializationforCreateProjectNegatiiveCase" finished-at="2024-05-29T13:33:41 GST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="initializationForCreateProjectNegativeCase()[pri:0, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@5d7ca698]" started-at="2024-05-30T11:19:39 GST" name="initializationForCreateProjectNegativeCase" finished-at="2024-05-30T11:19:39 GST" duration-ms="24" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initializationforCreateProjectNegatiiveCase -->
-        <test-method signature="createProjectWithMinimumLength()[pri:1, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@35cd68d4]" started-at="2024-05-29T13:33:41 GST" name="createProjectWithMinimumLength" finished-at="2024-05-29T13:33:47 GST" duration-ms="5911" status="PASS">
+        </test-method> <!-- initializationForCreateProjectNegativeCase -->
+        <test-method signature="createProjectWithMinimumLength()[pri:1, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@5d7ca698]" started-at="2024-05-30T11:19:47 GST" name="createProjectWithMinimumLength" finished-at="2024-05-30T11:19:48 GST" duration-ms="934" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createProjectWithMinimumLength -->
-        <test-method is-config="true" signature="initializationforCreateProjectNegatiiveCase()[pri:0, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@35cd68d4]" started-at="2024-05-29T13:33:47 GST" name="initializationforCreateProjectNegatiiveCase" finished-at="2024-05-29T13:33:47 GST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializationforCreateProjectNegatiiveCase -->
-        <test-method signature="createProjectWithMaximumLength()[pri:2, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@35cd68d4]" started-at="2024-05-29T13:33:47 GST" name="createProjectWithMaximumLength" finished-at="2024-05-29T13:33:48 GST" duration-ms="775" status="PASS">
+        <test-method signature="createProjectWithMaximumLength()[pri:2, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@5d7ca698]" started-at="2024-05-30T11:19:48 GST" name="createProjectWithMaximumLength" finished-at="2024-05-30T11:19:49 GST" duration-ms="904" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createProjectWithMaximumLength -->
-        <test-method is-config="true" signature="initializationforCreateProjectNegatiiveCase()[pri:0, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@35cd68d4]" started-at="2024-05-29T13:33:48 GST" name="initializationforCreateProjectNegatiiveCase" finished-at="2024-05-29T13:33:48 GST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializationforCreateProjectNegatiiveCase -->
-        <test-method signature="createProjectWithEmptyTitle()[pri:3, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@35cd68d4]" started-at="2024-05-29T13:33:48 GST" name="createProjectWithEmptyTitle" finished-at="2024-05-29T13:33:49 GST" duration-ms="884" status="PASS">
+        <test-method signature="createProjectWithEmptyTitle()[pri:3, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@5d7ca698]" started-at="2024-05-30T11:19:49 GST" name="createProjectWithEmptyTitle" finished-at="2024-05-30T11:19:55 GST" duration-ms="5710" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createProjectWithEmptyTitle -->
-        <test-method is-config="true" signature="initializationforCreateProjectNegatiiveCase()[pri:0, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@35cd68d4]" started-at="2024-05-29T13:33:49 GST" name="initializationforCreateProjectNegatiiveCase" finished-at="2024-05-29T13:33:49 GST" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializationforCreateProjectNegatiiveCase -->
-        <test-method signature="createProjectWithEmptyCode()[pri:4, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@35cd68d4]" started-at="2024-05-29T13:33:49 GST" name="createProjectWithEmptyCode" finished-at="2024-05-29T13:33:50 GST" duration-ms="816" status="PASS">
+        <test-method signature="createProjectWithEmptyCode()[pri:4, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@5d7ca698]" started-at="2024-05-30T11:19:55 GST" name="createProjectWithEmptyCode" finished-at="2024-05-30T11:19:56 GST" duration-ms="825" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createProjectWithEmptyCode -->
-        <test-method is-config="true" signature="initializationforCreateProjectNegatiiveCase()[pri:0, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@35cd68d4]" started-at="2024-05-29T13:33:50 GST" name="initializationforCreateProjectNegatiiveCase" finished-at="2024-05-29T13:33:50 GST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializationforCreateProjectNegatiiveCase -->
-        <test-method signature="createProjectUnathenticated()[pri:5, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@35cd68d4]" started-at="2024-05-29T13:33:50 GST" name="createProjectUnathenticated" finished-at="2024-05-29T13:33:51 GST" duration-ms="924" status="PASS">
+        <test-method signature="createProjectUnathenticated()[pri:5, instance:APITests.Project.CreateProject.Negative.CreateProjectNegativeCases@5d7ca698]" started-at="2024-05-30T11:19:56 GST" name="createProjectUnathenticated" finished-at="2024-05-30T11:19:57 GST" duration-ms="708" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createProjectUnathenticated -->
       </class> <!-- APITests.Project.CreateProject.Negative.CreateProjectNegativeCases -->
+      <class name="APITests.Project.DeleteProject.Positive.DeleteProjectPositiveCases">
+        <test-method is-config="true" signature="initializationAndCreateProject()[pri:0, instance:APITests.Project.DeleteProject.Positive.DeleteProjectPositiveCases@75961f16]" started-at="2024-05-30T11:19:57 GST" name="initializationAndCreateProject" finished-at="2024-05-30T11:19:57 GST" duration-ms="881" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initializationAndCreateProject -->
+        <test-method signature="deleteProjectByCode()[pri:1, instance:APITests.Project.DeleteProject.Positive.DeleteProjectPositiveCases@75961f16]" started-at="2024-05-30T11:19:57 GST" name="deleteProjectByCode" finished-at="2024-05-30T11:19:59 GST" duration-ms="1551" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteProjectByCode -->
+      </class> <!-- APITests.Project.DeleteProject.Positive.DeleteProjectPositiveCases -->
     </test> <!-- /Users/munisaazimkhodjaeva/IntelliJ IDEA/Java_Programming/iTechArt_AQA/Review_Automation/NewAutomation/src/test/java/APITests/Project/CreateProject/Positive/CreateProjectPositiveCases.java -->
   </suite> <!-- All Test Suite -->
 </testng-results>

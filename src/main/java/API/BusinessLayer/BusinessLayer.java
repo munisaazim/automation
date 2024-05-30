@@ -18,4 +18,8 @@ public class BusinessLayer {
         projectAPI = new ProjectAPI(baseUrl, token, contentType);
         return projectAPI.deleteProject(project,logger);
     }
+    public BaseAPIClass.CustomResponse getProjectByCode(String baseUrl, String contentType,String token, Project project, Logger logger){
+        projectAPI = new ProjectAPI(baseUrl, token,contentType);
+        return projectAPI.getProjectByCode(project, logger);
+    }
 }

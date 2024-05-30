@@ -2,6 +2,7 @@ package APITests.Project.CreateProject.Positive;
 
 import API.Base.BaseAPIClass;
 import APITests.Project.CreateProject.Positive.BeforeTestAndAfterTestForCreateProjectPositiveCases.BeforeTestAndAfterTestForCreateProjectPositiveCases;
+import Models.Project;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.qameta.allure.*;
 import org.apache.log4j.FileAppender;
@@ -18,23 +19,14 @@ public class CreateProjectPositiveCases extends BeforeTestAndAfterTestForCreateP
 
     @DataProvider(name = "projectData")
     public Object[][] projectData() {
+        Project projectWithRequiredFields = projectDataFactory.createProjectWithRequiredFields();
+        Project projectWithOptionalFields = projectDataFactory.createProjectWithOptionalFields();
         return new Object[][]{
-                {"tg16", "tg16", null},
-                {"tg17", "tg17", "tg17 description"},
+                {projectWithRequiredFields},
+                {projectWithOptionalFields},
         };
     }
 
-    // Setting project data
-    private void createProjectPositiveCaseDefineParameters(String title, String code, String description) {
-        project.setTitle(title.toUpperCase());
-        project.setCode(code.toUpperCase());
-        if (description != null) {
-            project.setDescription(description);
-        }
-        logger.info("Setting data for project object");
-    }
-
-    // Running create project with require/optional in positive case
     @Test(dataProvider = "projectData", priority = 1)
     @Epic("Creating project with positive case")
     @Severity(SeverityLevel.CRITICAL)
@@ -42,13 +34,14 @@ public class CreateProjectPositiveCases extends BeforeTestAndAfterTestForCreateP
     @Step("1. Creating project and businessLayer objects" +
             "2. Creating project with POST request" +
             "3. Verify project is created with GET request")
-    public void createProjectPositiveCase(String title, String code, String description) throws JsonProcessingException, FileNotFoundException {
+    public void createProjectPositiveCase(Project project) throws JsonProcessingException, FileNotFoundException {
+
+        projectsList.add(project);
+
         logFilePath = "log/CreateProjectPositiveCases/createProjectPositiveCase_" + formattedDateTime + ".log";
         logger = Logger.getLogger("Tests.TestSuite.CreateProjectPositiveCases.createProjectPositiveCase");
         FileAppender fileAppender = setFileAppender(logFilePath);
         logger.addAppender(fileAppender);
-
-        createProjectPositiveCaseDefineParameters(title, code, description);
         logger.info("Initializing project parameters");
 
         // Perform the API call
@@ -58,8 +51,12 @@ public class CreateProjectPositiveCases extends BeforeTestAndAfterTestForCreateP
         logger.info("Response code: " + customResponse.getStatusCode());
         logger.info("Body: " + customResponse.getBody());
 
+        fileAppender.close();
+
+        // Attach log file to Allure
         attachingLogFileToAllure(logFilePath);
         deletingDataFromLogger();
+
 
         assertThat("Create Project status code is: " + customResponse.getStatusCode() + "\n" + customResponse.getBody(), customResponse.getStatusCode(), equalTo(200));
     }
