@@ -33,6 +33,14 @@
                 <include name="createTestSuitePositiveCases"/>
             </methods>
         </class>
+        <class name="APITests.TestSuite.CreateTestSuite.Negative.CreateTestSuiteNegativeCases">
+            <methods>
+                <include name="createTestSuiteNegativeTestOne"/>
+                <include name="createTestSuiteNegativeTestTwo"/>
+                <include name="createTestSuiteNegativeTestThree"/>
+                <include name="createTestSuiteNegativeTestFour"/>
+            </methods>
+        </class>
     </classes>
 </test>
 </suite>
