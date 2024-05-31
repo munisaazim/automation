@@ -13,12 +13,24 @@
                 <include name="createProjectWithMaximumLength"/>
                 <include name="createProjectWithEmptyTitle"/>
                 <include name="createProjectWithEmptyCode"/>
-                <include name="createProjectUnathenticated"/>
+                <include name="createProjectUnauthenticated"/>
+
             </methods>
         </class>
         <class name="APITests.Project.DeleteProject.Positive.DeleteProjectPositiveCases">
             <methods>
                 <include name="deleteProjectByCode"/>
+            </methods>
+        </class>
+        <class name="APITests.Project.DeleteProject.Negative.DeleteProjectNegativeCases">
+            <methods>
+                <include name="deleteProjectByCodeNegativeCaseOne"/>
+                <include name="deleteProjectByCodeNegativeCaseThree"/>
+            </methods>
+        </class>
+        <class name="APITests.TestSuite.CreateTestSuite.Positive.CreateTestSuitePositiveCases">
+            <methods>
+                <include name="createTestSuitePositiveCases"/>
             </methods>
         </class>
     </classes>

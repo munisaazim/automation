@@ -48,10 +48,10 @@ public class BaseAPIClass {
         logger.debug("Deleting project with deleteRequest in BaseAPI");
         return customResponse(response, logger);
     }
-    public <T>CustomResponse<T> getRequestByCode(String Relative_Url, String Relative_Url_For_Get, Logger logger){
+    public <T>CustomResponse<T> getRequestByCode(String Relative_Url, Logger logger){
         Response response = requestSpecification
                 .basePath(Relative_Url)
-                .get(Relative_Url_For_Get);
+                .get();
         logger.debug("Getting project with getRequestByCode in BaseAPI");
         return customResponse(response,logger);
     }
@@ -127,6 +127,24 @@ public class BaseAPIClass {
                 JsonNode jsonNode = objectMapper.readTree(getResponseBody);
                 logger.debug("Obtaining details from node 'response body'");
                 return jsonNode.path("errorMessage").asText();
+            }
+        }
+        public String getErrorMessageWithData(Logger logger) throws JsonProcessingException {
+            if(getStatusCode()==200){
+                System.out.println("Status Code: " + getStatusCode() + "\n");
+                logger.debug("Status code: " + getStatusCode());
+                return null;
+            }
+            else {
+                logger.debug("Retrieving custom body");
+                String getResponseBody = getBody();
+                logger.debug("Initializing objectMapper object with corresponding class");
+                ObjectMapper objectMapper = new ObjectMapper();
+                logger.debug("Obtaining details about created project from node 'message'");
+                JsonNode jsonNode = objectMapper.readTree(getResponseBody);
+                logger.debug("Obtaining details from node 'response body'");
+                System.out.println(jsonNode);
+                return jsonNode.path("message").asText();
             }
         }
 

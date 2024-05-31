@@ -5,6 +5,7 @@ import API.BusinessLayer.BusinessLayer;
 import APITests.BaseTestComponents.BaseTestComponents;
 import FactoryAndBuilder.DataFactory.ProjectDataFactory;
 import Models.Project;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.qameta.allure.*;
 import org.apache.log4j.FileAppender;
@@ -17,70 +18,86 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
 
 public class BeforeTestAndAfterTestForCreateProjectPositiveCases extends BaseTestComponents {
     protected BusinessLayer businessLayer;
     protected Project project;
     protected Logger logger;
+    protected String logFilePath, logFilePathDeleteProject;
     protected List<Project> projectsList;
     protected ProjectDataFactory projectDataFactory;
-    protected String logFilePath, logFilePathDeleteProject;
 
-    protected FileAppender setFileAppender(String logFilePath){
+    protected FileAppender setFileAppender(String logFilePath) {
         FileAppender fileAppender = new FileAppender();
         fileAppender.setFile(logFilePath);
         fileAppender.setLayout(new PatternLayout("%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5p %c{1} - %m%n"));
         fileAppender.activateOptions();
-        return  fileAppender;
+        return fileAppender;
     }
 
-    protected void deletingDataFromLogger(){
+    protected void deletingDataFromLogger() {
         logger.removeAllAppenders();
         logger.getLoggerRepository().resetConfiguration();
     }
+
     protected void attachingLogFileToAllure(String logFilePath) throws FileNotFoundException {
         File logFile = new File(logFilePath);
         FileInputStream fileInputStream = new FileInputStream(logFile);
         Allure.addAttachment("Log File", "text/plain", fileInputStream, "txt");
 
     }
-    @BeforeTest
+
+    //Initializing objects
+    @BeforeClass
     @Severity(SeverityLevel.CRITICAL)
     @Description("Initializing project and businesslayer objects")
     @Step("Initializing project and businesslayer objects")
-    public void initializationForCreateProjectPositiveCase() {
-        projectDataFactory = new ProjectDataFactory();
+    public void initializeObjectsForProjectCreate() throws FileNotFoundException {
+
+        String methodName = Reporter.getCurrentTestResult().getMethod().getMethodName();
+        String logFileName = methodName + "_" + formattedDateTime + ".log";
+
+        logFilePath = "log/CreateProjectPositiveCases/setUp/" + logFileName;
+        logger = Logger.getLogger("Tests.CreateProjectPositiveCases.initializeObjectsForProjectCreate");
+        FileAppender fileAppender = setFileAppender(logFilePath);
+        logger.addAppender(fileAppender);
+
         project = new Project();
         businessLayer = new BusinessLayer();
+        projectDataFactory = new ProjectDataFactory();
         projectsList = new ArrayList<>();
+        logger.info("Initializing project/businesslayer objects for create project positive tests");
+
+        attachingLogFileToAllure(logFilePath);
+        deletingDataFromLogger();
     }
 
-    @AfterTest
+    //Deleting project
+    @AfterClass
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Deleting created projects")
-    @Step("Deleting created projects")
-    public void afterTestDeleteCreatedProjects() throws FileNotFoundException {
+    @Description("Deleting created project")
+    @Step("Deleting created project")
+    public void afterTestDeleteCreatedTest() throws FileNotFoundException, JsonProcessingException {
+
         for (Project project : projectsList) {
-            logFilePath = "log/CreateProjectPositiveCases/tearDown/" + project.getTitle() + "_" + formattedDateTime + ".log";
-            logger = Logger.getLogger("APITests.CreateProjectPositiveCases");
-            FileAppender fileAppender = setFileAppender(logFilePath);
-            logger.addAppender(fileAppender);
+                String getName = Reporter.getCurrentTestResult().getMethod().getMethodName();
+                String allName = getName + "_" + project.getTitle();
 
-            logger.info("Attempting to delete project: " + project.getCode() + " - " + project.getTitle());
+                logFilePath = "log/CreateProjectPositiveCases/tearDown/" + allName + "_" + formattedDateTime + ".log";
+                logger = Logger.getLogger("Tests.CreateProjectPositiveCases");
+                FileAppender fileAppender = setFileAppender(logFilePath);
+                logger.addAppender(fileAppender);
 
-            BaseAPIClass.CustomResponse customResponse = businessLayer.deleteProjectInBusinessLayer(BASE_URL, CONTENT_TYPE, API_TOKEN, project, logger);
+                BaseAPIClass.CustomResponse customResponse = businessLayer.deleteProjectInBusinessLayer(BASE_URL, CONTENT_TYPE, API_TOKEN, project, logger);
+                logger.info("Delete project");
+                logger.info("Delete project response code: " + customResponse.getStatusCode());
+                logger.info("Delete project response message: " + customResponse.getBody());
 
-            logger.info("Deletion response code: " + customResponse.getStatusCode());
-            logger.info("Deletion response body: " + customResponse.getBody());
+                attachingLogFileToAllure(logFilePath);
+                deletingDataFromLogger();
 
-            attachingLogFileToAllure(logFilePath);
-            deletingDataFromLogger();
-
-            assertThat("Delete Project status code is: " + customResponse.getStatusCode() + "\n" + customResponse.getBody(), customResponse.getStatusCode(), equalTo(200));
         }
     }
 

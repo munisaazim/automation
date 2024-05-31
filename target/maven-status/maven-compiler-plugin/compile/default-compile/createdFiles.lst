@@ -1,8 +1,10 @@
 Models/TestCase.class
 API/APIPages/ProjectAPI.class
+API/APIPages/TestSuiteAPI.class
 Models/Milestone.class
 Models/TestSuite.class
 FactoryAndBuilder/Builder/ProjectBuilder.class
+FactoryAndBuilder/DataFactory/TestSuiteDataFactory.class
 FactoryAndBuilder/DataFactory/ProjectDataFactory.class
 Models/TestSuite$Result.class
 API/Base/BaseAPIClass.class
@@ -10,4 +12,5 @@ Models/Project.class
 Models/Project$Result.class
 API/BusinessLayer/BusinessLayer.class
 API/Base/BaseAPIClass$CustomResponse.class
+FactoryAndBuilder/Builder/TestSuiteBuilder.class
 Models/TestCase$Result.class

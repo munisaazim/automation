@@ -74,19 +74,21 @@ public class BeforeTestAndAfterTestForDeleteProjectPositiveCases extends BaseTes
 
         project = projectDataFactory.createProjectToDeleteTestCaseForPositiveCase();
 
-        logger.info("Initializing of all objects");
+        logger.info("Initializing project/businesslayer objects for delete project positive tests");
 
         projectList.add(project);
 
         BaseAPIClass.CustomResponse customResponseForCreateProject = businessLayer.createProjectInBusinessLayer(BASE_URL, CONTENT_TYPE,API_TOKEN, project, logger);
 
-        if(customResponseForCreateProject.getStatusCode() == 200){
+        logger.info("Delete project");
+        logger.info("Delete project response code: " + customResponseForCreateProject.getStatusCode());
+        logger.info("Delete project response message: " + customResponseForCreateProject.getBody());
+
             if (customResponseForCreateProject.getStatusCode() == 200) {
                 assertThat("Status code: " + customResponseForCreateProject.getStatusCode(), customResponseForCreateProject.getStatusCode(), equalTo(200));
             } else {
                 assertThat("Status code: " + customResponseForCreateProject.getStatusCode(), customResponseForCreateProject.getStatusCode(),not(equalTo(200)));
             }
-        }
         attachingLogFileToAllure(logFilePath);
         deletingDataFromLogger();
     }

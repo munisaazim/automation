@@ -36,12 +36,18 @@ public class DeleteProjectPositiveCases extends BeforeTestAndAfterTestForDeleteP
         logger.addAppender(fileAppender);
 
         BaseAPIClass.CustomResponse customResponse = businessLayer.deleteProjectInBusinessLayer(BASE_URL, CONTENT_TYPE, API_TOKEN, project, logger);
+        logger.info("Delete created project");
+        logger.info("Delete project response code: " + customResponse.getStatusCode());
+        logger.info("Delete project response message: " + customResponse.getBody());
+
         assertThat("Status code: " + customResponse.getStatusCode(), customResponse.getStatusCode(), equalTo(200));
 
         BaseAPIClass.CustomResponse customResponseForGetProjectCode = businessLayer.getProjectByCode(BASE_URL, CONTENT_TYPE, API_TOKEN, project, logger);
+        logger.info("Get deleted project");
+        logger.info("Get project response code: " + customResponse.getStatusCode());
+        logger.info("Get project response message: " + customResponse.getBody());
         String errorMessage = customResponseForGetProjectCode.getErrorMessageForDelete(logger);
 
-        System.out.println(customResponseForGetProjectCode.getBody());
         attachingLogFileToAllure(logFilePathDeleteProject);
         deletingDataFromLogger();
 
