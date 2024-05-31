@@ -1,7 +1,7 @@
 package APITests.TestSuite.CreateTestSuite.Negative;
 
 import API.Base.BaseAPIClass;
-import APITests.TestSuite.CreateTestSuite.BeforeTestAndAfterTestForCreateTestSuiteNegativeCases.BeforeTestAndAfterTestForCreateTestSuiteNegativeCases;
+import APITests.TestSuite.CreateTestSuite.Negative.BeforeTestAndAfterTestForCreateTestSuiteNegativeCases.BeforeTestAndAfterTestForCreateTestSuiteNegativeCases;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.qameta.allure.*;
 import org.apache.log4j.FileAppender;

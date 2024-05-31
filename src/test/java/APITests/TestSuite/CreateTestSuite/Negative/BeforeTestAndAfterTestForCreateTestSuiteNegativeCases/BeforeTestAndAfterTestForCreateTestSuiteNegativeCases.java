@@ -1,4 +1,4 @@
-package APITests.TestSuite.CreateTestSuite.BeforeTestAndAfterTestForCreateTestSuiteNegativeCases;
+package APITests.TestSuite.CreateTestSuite.Negative.BeforeTestAndAfterTestForCreateTestSuiteNegativeCases;
 
 import API.Base.BaseAPIClass;
 import API.BusinessLayer.BusinessLayer;
