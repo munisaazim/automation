@@ -10,4 +10,13 @@ public class TestSuiteDataFactory {
     public TestSuite createTestSuiteWithOptionalFields(){
         return new TestSuiteBuilder().title("newY").description("newY").preconditions("newY").build();
     }
+    public TestSuite createTestSuiteOne(){
+        return new TestSuiteBuilder().title("nvceuojcaqzcrmomtunbfgzjgrpfawoywvqekkrtgqsrujmnonerlgxfrpqbslhwatimowonlxgneqqlfwakmrbgxjihgksaenbfgyigecbwjtbcviisbqlgefoftmiuldvwbrhnbypwxtkxkemwfauwpajlvwogeygaufxfqkljhxijgvjemuyekgdutbzcngglsyhvfcuusaebwxordxpbhihwqmmxoodkqqgjpoftuijqsvvfpownzaeyrblg").description("desc").preconditions("pre").build();
+    }
+    public TestSuite createTestSuiteTwo(){
+        return new TestSuiteBuilder().description("desc").preconditions("pre").build();
+    }
+    public TestSuite createTestSuiteThree(){
+        return new TestSuiteBuilder().title(null).description("desc").preconditions("pre").build();
+    }
 }

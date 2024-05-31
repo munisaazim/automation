@@ -24,12 +24,21 @@ public class BusinessLayer {
     }
     public BaseAPIClass.CustomResponse getProjectByCode(String baseUrl, String contentType,String token, Project project, Logger logger){
         projectAPI = new ProjectAPI(baseUrl, token,contentType);
-        logger.debug("Sending project details in BusinessLayerAPI to get created projected in ProjectAPI");
+        logger.debug("Sending project details in BusinessLayerAPI to get created project in ProjectAPI");
         return projectAPI.getProject(project, logger);
     }
     public BaseAPIClass.CustomResponse createTestSuiteInBusinessLayer(String baseUrl, String contentType, String token, TestSuite testSuite, Project project,Logger logger) throws JsonProcessingException {
         testSuiteAPI = new TestSuiteAPI(baseUrl,token,contentType);
         logger.debug("Sending new testSuite details in BusinessLayerAPI to create new testSuite in TestSuiteAPI");
         return testSuiteAPI.createTestSuite(testSuite,project,logger);
+    }
+    public <T> T getObjectModelForTestSuiteInBusiness(BaseAPIClass.CustomResponse<T> customResponse, Class<T> responseType, Logger logger) throws JsonProcessingException {
+        logger.debug("Obtaining object for Created Test Class");
+        return customResponse.getObjectModelForTestSuite(logger);
+    }
+    public BaseAPIClass.CustomResponse getTestSuite(String baseUrl, String contentType, String token, int testSuiteID, Project project, Logger logger){
+        testSuiteAPI = new TestSuiteAPI(baseUrl, token, contentType);
+        logger.debug("Sending project details in BusinessLayerAPI to get created testSuite in ProjectAPI");
+        return testSuiteAPI.getTestSuite(testSuiteID,project,logger);
     }
 }

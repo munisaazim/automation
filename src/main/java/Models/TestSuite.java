@@ -9,6 +9,9 @@ public class TestSuite {
     String title;
     String description;
     String preconditions;
+
+    private Result result;
+
     public void setTitle(String title){
         this.title = title;
     }
@@ -37,6 +40,13 @@ public class TestSuite {
         this.description = description;
         this.preconditions = preconditions;
     }
+    public Result getResult() {
+        return result;
+    }
+
+    public void setResult(Result result) {
+        this.result = result;
+    }
 
 
     public static class Result {
@@ -44,6 +54,8 @@ public class TestSuite {
         private String title;
         private String description;
         private String preconditions;
+        @JsonProperty("id")
+        private int id;
 
         public void setEntities(List<TestSuite>entities){
             this.entities = entities;
@@ -71,5 +83,12 @@ public class TestSuite {
         public String getPreconditions() {
             return preconditions;
         }
+        public int getId() {
+            return id;
+        }
+        public void setId(int id) {
+            this.id = id;
+        }
+
     }
 }

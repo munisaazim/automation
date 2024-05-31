@@ -1,6 +1,7 @@
 package API.Base;
 
 import Models.Project;
+import Models.TestSuite;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -55,6 +56,7 @@ public class BaseAPIClass {
         logger.debug("Getting project with getRequestByCode in BaseAPI");
         return customResponse(response,logger);
     }
+
 
     public class CustomResponse <T> {
         private int statusCode;
@@ -145,6 +147,32 @@ public class BaseAPIClass {
                 logger.debug("Obtaining details from node 'response body'");
                 System.out.println(jsonNode);
                 return jsonNode.path("message").asText();
+            }
+        }
+        public T getObjectModelForTestSuite(Logger logger) throws JsonProcessingException {
+            if (getStatusCode() == 200) {
+                logger.debug("Initializing objectMapper object with corresponding class");
+                ObjectMapper objectMapper = new ObjectMapper();
+                logger.debug("Retrieving custom body");
+                JsonNode jsonNode = objectMapper.readTree(getBody());
+                JsonNode resultNode = jsonNode.path("result");
+                logger.debug("Obtaining details about created project from node 'result'");
+
+                // Create a new instance of TestSuite.Result and set the id
+                logger.debug("Creating a new instance of TestSuite.Result and set the id");
+                TestSuite.Result result = objectMapper.treeToValue(resultNode, TestSuite.Result.class);
+
+                // Create a new instance of TestSuite and set the result
+                logger.debug("Creating a new instance of TestSuite");
+                TestSuite testSuite = new TestSuite();
+                logger.debug("Setting result for created instance of TestSuite");
+                testSuite.setResult(result);
+
+                logger.debug("Returning created instance of TestSuite");
+                return (T) testSuite;
+            } else {
+                logger.debug("Status code is not 200, it is: " + getStatusCode());
+                return null;
             }
         }
 

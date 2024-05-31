@@ -49,10 +49,30 @@ public class CreateTestSuitePositiveCases extends BeforeTestAndAfterTestForCreat
         logger.info("Create testSuite response code: " + customResponse.getStatusCode());
         logger.info("Create testSuite response message: " + customResponse.getBody());
 
+        System.out.println("body" + customResponse.getBody());
+
         attachingLogFileToAllure(logFilePath);
         deletingDataFromLogger();
 
-        assertThat("Create Project status code is: " + customResponse.getStatusCode() + "\n" + customResponse.getBody(), customResponse.getStatusCode(), equalTo(200));
+        assertThat("Create TestSuite status code is: " + customResponse.getStatusCode() + "\n" + customResponse.getBody(), customResponse.getStatusCode(), equalTo(200));
+
+        logFilePathForGetTestSuite = "log/CreateTestSuitePositiveCases/checkCreatedTestSuite/"  + allName  + "_" + formattedDateTime + ".log";
+        logger= Logger.getLogger("APITests.TestSuite.CreateTestSuitePositiveCases.createTestSuitePositiveCase");
+        FileAppender fileAppenderForGetTestSuite = setFileAppender(logFilePathForGetTestSuite);
+        logger.addAppender(fileAppenderForGetTestSuite);
+
+        TestSuite createdTestSuite =  businessLayer.getObjectModelForTestSuiteInBusiness(customResponse, TestSuite.class, logger);
+
+        int testSuiteID = createdTestSuite.getResult().getId();
+        logger.info("Defining created test suite id");
+
+        BaseAPIClass.CustomResponse customResponseForGetTestSuite = businessLayer.getTestSuite(BASE_URL, CONTENT_TYPE, API_TOKEN,testSuiteID,project,logger);
+
+        attachingLogFileToAllure(logFilePathForGetTestSuite);
+        deletingDataFromLogger();
+
+        assertThat("Create Project status code is: " + customResponseForGetTestSuite.getStatusCode() + "\n" + customResponseForGetTestSuite.getBody(), customResponseForGetTestSuite.getStatusCode(), equalTo(200));
+
 
     }
 }

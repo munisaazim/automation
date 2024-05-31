@@ -25,4 +25,12 @@ public class TestSuiteAPI extends BaseAPIClass {
         return postRequest(RELATIVE_URL_FOR_CREATE_TEST_SUITE, getJsonForCreateTestSuite, String.class, logger);
 
     }
+    public CustomResponse getTestSuite(int testSuiteID, Project project, Logger logger){
+        String getCode = project.getCode().toUpperCase();
+        String relativeUrlForGetTestSuite = RELATIVE_URL + "/" + getCode + "/" + testSuiteID;
+        logger.debug("Sending new testSuite details in TestSuiteAPI to get created testSuite in BaseAPI");
+        return getRequestByCode(relativeUrlForGetTestSuite,logger);
+
+
+    }
 }
